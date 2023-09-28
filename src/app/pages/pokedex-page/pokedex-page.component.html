@@ -1,11 +1,12 @@
 <div class="container mb-5">
-    <h2 class="my-3">My Pokedex</h2>
+    <h2 class="my-3 text-secondary">My Pokedex</h2>
+    <hr>
     <app-pokemon-list [pokemons]="pokemons" (pokemonClick)="onPokemonClick($event)"></app-pokemon-list>
 </div>
 <div class="container mb-5">
     <app-pokemon-detail [selectedPokemon]="selectedPokemon"></app-pokemon-detail>
 </div>
-<div class="container mb-5">
+<div class="container mb-5 d-flex justify-content-end">
     <p class="fw-bold">Want to add another pokemon to the list? <a href="/create">Click here!</a></p>
 </div>
 <router-outlet></router-outlet>

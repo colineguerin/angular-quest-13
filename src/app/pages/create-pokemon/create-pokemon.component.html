@@ -1,0 +1,25 @@
+<app-pokedex-page></app-pokedex-page>
+<div class="container my-5">
+    <h2>Add a new pokemon here!</h2>
+    <form #createPokemonForm="ngForm" class="w-50" (ngSubmit)="createPokemonForm.valid && addPokemon()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="pokemon.name" #name="ngModel" required>
+            <div *ngIf="createPokemonForm.submitted && name.errors">
+                <span *ngIf="name.errors?.['required']" class="form-text text-danger">Ce champ est obligatoire</span>
+              </div>
+        </div>
+        <div class="mb-3">
+            <label for="imageUrl" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="imageUrl" name="imageUrl" [(ngModel)]="pokemon.imageUrl" #imageUrl="ngModel" required>
+            <div *ngIf="createPokemonForm.submitted && imageUrl.errors">
+                <span *ngIf="imageUrl.errors?.['required']" class="form-text text-danger">Ce champ est obligatoire</span>
+              </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" id="description" rows="5" name="description" [(ngModel)]="pokemon.description" #description="ngModel"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+    </form>
+</div>
